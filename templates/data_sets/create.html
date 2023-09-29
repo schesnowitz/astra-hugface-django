@@ -1,0 +1,18 @@
+{% include "base.html" %}
+
+{% block content %}
+<form method="POST" action="{% url 'data_set:create_data_set' %}">
+    {% csrf_token %}
+
+    <div class="mb-3">
+        <label for="dataset" class="form-label">*Enter data set name</label>
+        <input id="dataset" name="dataset" class="form-control"/>
+    </div>
+
+
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+</form>
+
+{% endblock content %}

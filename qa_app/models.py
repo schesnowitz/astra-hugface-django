@@ -15,6 +15,7 @@ class Answers(DjangoCassandraModel):
     __keyspace__ = "vector_db_keyspace"
 
     row_id = columns.UUID(primary_key=True)
+    session_id = columns.Integer(index=True)
     question = columns.Text()
     answer = columns.Text()
 # python manage.py sync_cassandra

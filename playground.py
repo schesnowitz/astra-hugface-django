@@ -10,9 +10,9 @@ import secret_stuff
 
 def load_articles(n=5):
     """ Loads N articles from the 'cnn_dailymail' dataset, in streaming mode """
-    dataset = datasets.load_dataset("cnn_dailymail", '3.0.0', split="train", streaming=True)
+    dataset = datasets.load_dataset("ag_news", split="train", streaming=True)
     data = dataset.take(n)
-    return [d['article'] for d in data]
+    return [d['text'] for d in data]
 
 articles = load_articles()
 # print((articles[0]))
@@ -71,7 +71,7 @@ the_vectorstore = Cassandra.from_documents(
     table_name='cnn_vectors'
 )
 # print(articles[-1]) 
-query = "When will Michael Vick appear in court?"
+query = "Carlyle Group's reputation?"
 response = the_vectorstore.similarity_search(query, k=2)
 # print(response)
 

@@ -1,0 +1,36 @@
+{% include "base.html" %}
+
+{% block content %}
+<div class="row">
+<div class="col-8">
+    <ul class="list-group">
+
+<li class="list-group-item">
+
+
+ 
+</li>
+
+</ul>
+</div>
+
+<div class="col-4 ml-4">
+    <form method="POST" action="{% url 'data_set:create' %}">
+        {% csrf_token %}
+
+        <div class="mb-3">
+            <label for="dataset" class="form-label">*Enter your query:</label>
+            <input id="dataset" name="dataset" class="form-control"/>
+        </div>
+
+
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+
+    </form>
+</div>
+</div> 
+
+
+
+{% endblock content %}
